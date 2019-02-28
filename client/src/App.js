@@ -34,7 +34,7 @@ class App extends Component {
     console.log("web3 value is ",web3.eth.getAccounts());
     const accounts = await web3.eth.getAccounts();
     console.log('Sending from Metamask account: ' , accounts[0]);
-    const ethAddress= await storeMyValue.options.address;
+    const ethAddress = await storeMyValue.options.address;
     this.setState({ethAddress});
     await ipfs.add(this.state.buffer, (err, ipfsHash) => {
       console.log(err,ipfsHash);
@@ -81,6 +81,9 @@ class App extends Component {
         </tr>
         </tbody>
       </table>
+      <div className="Image">
+       <p>{this.state.ipfsHash}</p>
+      </div>
     </div>
     );
   }
